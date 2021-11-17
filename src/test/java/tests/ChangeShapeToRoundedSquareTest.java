@@ -11,7 +11,7 @@ import java.io.IOException;
 public class ChangeShapeToRoundedSquareTest extends BaseClass {
 
     @Test(description = "Change shape of the stopwatch screen to rounded square")
-    public void changeShapeToRoundedSquareTest() throws InterruptedException {
+    public void changeShapeToRoundedSquareTest() {
         stopwatchPageSteps.tapSettingsButton();
         stopwatchPageSteps.tapRoundedSquareButton();
         File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
@@ -20,5 +20,6 @@ public class ChangeShapeToRoundedSquareTest extends BaseClass {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        stopwatchPageSteps.tapSettingsButton();
     }
 }

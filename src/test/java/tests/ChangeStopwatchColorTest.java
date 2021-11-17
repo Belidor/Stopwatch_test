@@ -10,7 +10,7 @@ import java.io.IOException;
 public class ChangeStopwatchColorTest extends BaseClass {
 
     @Test(description = "Change color of the stopwatch screen")
-    public void changeStopwatchColorTest() throws InterruptedException {
+    public void changeStopwatchColorTest() {
         stopwatchPageSteps.tapSettingsButton();
         stopwatchPageSteps.tapColorsPalette();
         File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
@@ -19,5 +19,6 @@ public class ChangeStopwatchColorTest extends BaseClass {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        stopwatchPageSteps.tapSettingsButton();
     }
 }

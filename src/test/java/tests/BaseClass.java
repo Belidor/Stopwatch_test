@@ -3,8 +3,12 @@ package tests;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.MobileCapabilityType;
+import io.appium.java_client.service.local.flags.GeneralServerFlag;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import io.appium.java_client.service.local.AppiumDriverLocalService;
+import io.appium.java_client.service.local.AppiumServiceBuilder;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import steps.*;
@@ -13,7 +17,7 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class BaseClass {
+public abstract class BaseClass {
     public static final String DEFAULT_DEVICE = "emulator";
     private static final String APK_NAME = "stopwatch.apk";
     private static final String URL = "http://127.0.0.1:4723/wd/hub";
@@ -40,6 +44,16 @@ public class BaseClass {
         capabilities.setCapability("appPackage", APP_PACKAGE);
         capabilities.setCapability("appActivity", APP_ACTIVITY);
 
+        AppiumServiceBuilder builder = new AppiumServiceBuilder();
+        builder.withIPAddress("127.0.0.1");
+        builder.usingPort(4723);
+        builder.withCapabilities(capabilities);
+        builder.withArgument(GeneralServerFlag.SESSION_OVERRIDE);
+        builder.withArgument(GeneralServerFlag.LOG_LEVEL,"error");
+
+        AppiumDriverLocalService service = AppiumDriverLocalService.buildService(builder);
+        service.start();
+
         driver = new AndroidDriver(url, capabilities);
     }
 
@@ -50,8 +64,18 @@ public class BaseClass {
         introductionPageSteps = new IntroductionPageSteps(driver);
         accessPageSteps = new AccessPageSteps(driver);
         updatePageSteps = new UpdatePageSteps(driver);
+
         permissionPageSteps.checkPageDisplayed().tapAllowButton();
         introductionPageSteps.checkPageDisplayed().tapLaterButton();
+    }
+
+    @BeforeMethod
+    public void setUpPages() {
+        stopwatchPageSteps = new StopwatchPageSteps(driver);
+        permissionPageSteps = new PermissonPageSteps(driver);
+        introductionPageSteps = new IntroductionPageSteps(driver);
+        accessPageSteps = new AccessPageSteps(driver);
+        updatePageSteps = new UpdatePageSteps(driver);
     }
 
     @AfterSuite

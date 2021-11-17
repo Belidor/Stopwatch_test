@@ -20,9 +20,9 @@
     <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:mac:15.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-base:15.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-base:mac:15.0.1" level="project" />
-    <orderEntry type="library" name="Maven: org.testng:testng:7.4.0" level="project" />
-    <orderEntry type="library" name="Maven: com.beust:jcommander:1.78" level="project" />
-    <orderEntry type="library" name="Maven: org.webjars:jquery:3.5.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.testng:testng:7.4.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: com.beust:jcommander:1.78" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.webjars:jquery:3.5.1" level="project" />
     <orderEntry type="library" name="Maven: io.appium:java-client:7.5.1" level="project" />
     <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-support:3.141.59" level="project" />
     <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-api:3.141.59" level="project" />

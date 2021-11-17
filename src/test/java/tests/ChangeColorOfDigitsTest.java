@@ -11,7 +11,7 @@ import java.io.IOException;
 public class ChangeColorOfDigitsTest extends BaseClass {
 
     @Test(description = "Change color of digits")
-    public void changeColorOfDigitsTest () throws InterruptedException {
+    public void changeColorOfDigitsTest () {
         stopwatchPageSteps.tapSettingsButton();
         stopwatchPageSteps.tapDigitsColorPalette();
         File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
@@ -20,5 +20,6 @@ public class ChangeColorOfDigitsTest extends BaseClass {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        stopwatchPageSteps.tapSettingsButton();
     }
 }

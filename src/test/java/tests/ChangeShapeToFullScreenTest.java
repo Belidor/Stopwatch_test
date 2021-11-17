@@ -11,7 +11,7 @@ import java.io.IOException;
 public class ChangeShapeToFullScreenTest extends BaseClass {
 
     @Test(description = "Change shape the stopwatch screen to full screen")
-    public void changeShapeToFullScreenTest() throws InterruptedException {
+    public void changeShapeToFullScreenTest() {
         stopwatchPageSteps.tapSettingsButton();
         stopwatchPageSteps.tapFullScreenButton();
         File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
@@ -20,6 +20,7 @@ public class ChangeShapeToFullScreenTest extends BaseClass {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        stopwatchPageSteps.tapSettingsButton();
     }
 
 }
