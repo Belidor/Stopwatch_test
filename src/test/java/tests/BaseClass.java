@@ -65,6 +65,8 @@ public abstract class BaseClass {
         accessPageSteps = new AccessPageSteps(driver);
         updatePageSteps = new UpdatePageSteps(driver);
 
+        accessPageSteps.checkPageDisplayed().tapAllowButton();
+        updatePageSteps.checkPageDisplayed().tapOkButton();
         permissionPageSteps.checkPageDisplayed().tapAllowButton();
         introductionPageSteps.checkPageDisplayed().tapLaterButton();
     }

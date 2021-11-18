@@ -13,6 +13,7 @@ public class ChangeBackgroundColorTest extends BaseClass {
     @Test(description = "Change background mode")
     public void changeBackgroundColorTest() {
         stopwatchPageSteps.tapSettingsButton();
+        stopwatchPageSteps.tapSquareButton();
         stopwatchPageSteps.tapBackgroundButton();
         File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         try {
